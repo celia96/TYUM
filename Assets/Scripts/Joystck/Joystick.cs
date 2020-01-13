@@ -42,6 +42,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     protected virtual void Start()
     {
+		//Debug.Log("Hello Joystick");
         HandleRange = handleRange;
         DeadZone = deadZone;
         baseRect = GetComponent<RectTransform>();
@@ -64,6 +65,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public void OnDrag(PointerEventData eventData)
     {
+        //Debug.Log("OnDrag Activated");
         cam = null;
         if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
             cam = canvas.worldCamera;
@@ -78,6 +80,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
+        //Debug.Log("HandleInput Activated");
         if (magnitude > deadZone)
         {
             if (magnitude > 1)
@@ -89,6 +92,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     private void FormatInput()
     {
+        //Debug.Log("FormatInput Activated");
         if (axisOptions == AxisOptions.Horizontal)
             input = new Vector2(input.x, 0f);
         else if (axisOptions == AxisOptions.Vertical)
@@ -97,6 +101,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     private float SnapFloat(float value, AxisOptions snapAxis)
     {
+        //Debug.Log("SnapFloat Activated");
         if (value == 0)
             return value;
 
@@ -131,12 +136,14 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
+        //Debug.Log("OnPointerUp Activated");
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
     {
+        //Debug.Log("ScreenPointToAnchoredPosition Activated");
         Vector2 localPoint = Vector2.zero;
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out localPoint))
         {

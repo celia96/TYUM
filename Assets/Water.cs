@@ -4,42 +4,34 @@ using UnityEngine;
 
 public class Water : MonoBehaviour
 {
-    public Sprite[] sprites;
-    private SpriteRenderer spriteRend;
+    [Tooltip("The individual sprites of the animation")]
+    public Sprite[] frames;
+    [Tooltip("How fast does the animation play")]
+    public float framesPerSecond;
+
+    private SpriteRenderer spriteRenderer;
     private int spriteVersion = 0;
-    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRend = gameObject.GetComponent<SpriteRenderer>();
-        StartCoroutine(WaterAnimationCoroutine(speed));
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        StartCoroutine(PlayAnimation(framesPerSecond));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-   
-    }
-
-    void UpdateAnimations()
-    {
-        Debug.Log("updating animation");
-    }
-
-    IEnumerator WaterAnimationCoroutine(float seconds)
+    IEnumerator PlayAnimation(float seconds)
     {
         while (true)
         {
             yield return new WaitForSeconds(seconds);
-            if (spriteVersion == sprites.Length - 1)
+            if (spriteVersion == frames.Length - 1)
             {
                 spriteVersion = 0;
             } else
             {
                 spriteVersion += 1;
             }
-            spriteRend.sprite = sprites[spriteVersion];
+            spriteRenderer.sprite = frames[spriteVersion];
         }
 
     }
