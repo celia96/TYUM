@@ -5,12 +5,15 @@ using UnityEngine;
 public class OpenableHint : Touchable
 {
 
-	[Tooltip("Hint Sprite to render.")]
-	public Sprite hintImage;
+    [Tooltip("Hint Panel to be opened. Gets enabled and disabled.")]
+    public UIHintPanel hintPanel;
 
     public override void OnTouch()
     {
-        UIManager.OpenHint(hintImage);
+        Debug.Log("opening a hint");
+
+        UIManager.instance.inventoryPanel.Close();
+        hintPanel.Open();
     }
 
 }

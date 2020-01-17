@@ -15,3 +15,4 @@ MonoBehaviour:
   name: cheese
   icon: {fileID: 21300000, guid: 26b40ab7025394d51826a4ef8fe25c89, type: 3}
   isDefaultItem: 0
+  isCollected: 0

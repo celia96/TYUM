@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Fridge : Touchable
 {
     public Sprite fridgeOpened;
+    public Sprite fridgeClosed;
     public GameObject cheesePrefab;
     public Transform cheeseSpawn;
+
     private SpriteRenderer spriteRenderer;
     private static bool opened = false;
 
@@ -17,8 +19,16 @@ public class Fridge : Touchable
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		if (opened)
 		{
-			spriteRenderer.sprite = fridgeOpened;
-		}
+            spriteRenderer.sprite = fridgeOpened;
+
+            // spawn cheese game object
+            Collectible cheese = cheesePrefab.GetComponent<Collectible>();
+            if (!cheese.item.isCollected)
+            {
+                Instantiate(cheesePrefab, cheeseSpawn.position, Quaternion.identity);
+            }
+
+        }
         
     }
 
@@ -27,13 +37,21 @@ public class Fridge : Touchable
     {
         if (!opened)
         {
-            Debug.Log("open fridge");
+            Debug.Log("open a fridge");
             opened = true;
             spriteRenderer.sprite = fridgeOpened;
 
             // spawn cheese game object
-            Instantiate(cheesePrefab, cheeseSpawn.position, Quaternion.identity);
-            
+            Collectible cheese = cheesePrefab.GetComponent<Collectible>();
+            if (!cheese.item.isCollected)
+            {
+                Instantiate(cheesePrefab, cheeseSpawn.position, Quaternion.identity);
+            }            
+        } else
+        {
+            Debug.Log("close a fridge");
+            opened = false;
+            spriteRenderer.sprite = fridgeClosed;
         }
         
     }

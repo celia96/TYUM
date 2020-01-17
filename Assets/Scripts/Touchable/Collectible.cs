@@ -7,6 +7,15 @@ public class Collectible : Touchable
 
     public Item item;
 
+    void Start()
+    {
+        if (item.isCollected)
+        {
+            Destroy(gameObject);
+        }    
+    }
+
+
     public override void OnTouch()
     {
         OnCollect();
@@ -14,6 +23,7 @@ public class Collectible : Touchable
 
     public void OnCollect() {
         Debug.Log("collecting " + item.name);
+        item.isCollected = true;
         UIManager.ObtainItem(item);
         Destroy(gameObject);
     }

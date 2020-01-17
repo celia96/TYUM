@@ -10,9 +10,10 @@ public class OpenableMission : Touchable
 
     public override void OnTouch()
     {
-        Debug.Log("opening mission");
-        UIManager.instance.missionPanel = missionPanel;
-        UIManager.OpenMission();
+        Debug.Log("opening a mission");
+
+        UIManager.instance.inventoryPanel.Close();
+        missionPanel.Open();
     }
 
 }

@@ -8,7 +8,7 @@ public class Item : ScriptableObject
 
     public Sprite icon;
     public bool isDefaultItem = false;
-
+    public bool isCollected = false;
 
     public virtual void Use(Item item)
     {
