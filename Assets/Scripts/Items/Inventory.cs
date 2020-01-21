@@ -26,13 +26,25 @@ public class Inventory : MonoBehaviour
     {
         if (!item.isDefaultItem)
         {
-            Debug.Log("adding an item to the inventory");
-            items.Add(item);
-
-            if (OnItemChangedCallback != null)
+            if (items.Contains(item))
             {
-                OnItemChangedCallback.Invoke();
+                Debug.Log("incrementing an existing item");
+                if (OnItemChangedCallback != null)
+                {
+                    OnItemChangedCallback.Invoke();
+                }
             }
+            else
+            {
+                Debug.Log("adding an item to the inventory");
+                items.Add(item);
+
+                if (OnItemChangedCallback != null)
+                {
+                    OnItemChangedCallback.Invoke();
+                }
+            }
+
         }
     }
 
@@ -40,6 +52,17 @@ public class Inventory : MonoBehaviour
     {
         Debug.Log("removing an item from an inventory");
         items.Remove(item);
+
+        if (OnItemChangedCallback != null)
+        {
+            OnItemChangedCallback.Invoke();
+        }
+    }
+
+    public void RemoveAll()
+    {
+        Debug.Log("removing all items from an inventory");
+        items.Clear();
 
         if (OnItemChangedCallback != null)
         {

@@ -8,6 +8,7 @@ public class Door : Touchable
 
     public string sceneToLoad;
     private SpriteRenderer spriteRenderer;
+
     private bool opened;
 
     void Start()

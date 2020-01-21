@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Telephone : MonoBehaviour
 {
@@ -8,26 +7,54 @@ public class Telephone : MonoBehaviour
     public string numberToCall;
     public string pressedNumbers;
 
+    public Text numberText;
+
+    public static bool missionComplete;
+
+    void Start()
+    {
+        numberText.text = pressedNumbers;
+    }
+
     public void Call()
     {
         if (numberToCall == pressedNumbers)
         {
-            Debug.Log("Correct Number!");
+            numberText.text = "Correct Number!";
+            Debug.Log("mision is complete. Start the animation mov");
+            missionComplete = true;
+            // play MOV
+            if (Fishing.missionComplete == true)
+            {
+                Debug.Log(" play complete animation mov ");
+            } else
+            {
+                Debug.Log(" play incomplete animation mov ");
+                missionComplete = false;
+            }
+
         } else
         {
-            Debug.Log("Wrong Number!");
+            numberText.text = "Wrong Number!";
         }
     }
 
     public void Clear()
     {
         pressedNumbers = "";
+        numberText.text = pressedNumbers;
     }
 
     public void PressNumber(int number)
     {
         pressedNumbers += number.ToString();
-        Debug.Log("Now... " + pressedNumbers);
+        numberText.text = pressedNumbers;
+    }
+
+    public void PressChar(string str)
+    {
+        pressedNumbers += str;
+        numberText.text = pressedNumbers;
     }
 
 }

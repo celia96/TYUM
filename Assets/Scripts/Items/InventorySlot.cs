@@ -6,6 +6,7 @@ public class InventorySlot : MonoBehaviour
 {
 
 	public Image icon;
+    public Text numberText;
 	Item item;
 
 
@@ -15,6 +16,10 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = item.icon;
         icon.enabled = true;
+        if (item.number > 1)
+        {
+            numberText.text = "x" + item.number.ToString();
+        } 
 	}
 
     public void ClearSlot()
@@ -31,6 +36,9 @@ public class InventorySlot : MonoBehaviour
         if (item != null)
         {
             item.Use(item);
+        } else
+        {
+            Debug.Log("Cannot use this item");
         }
     }
 

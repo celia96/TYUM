@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
@@ -26,6 +23,7 @@ public class UIManager : MonoBehaviour
     {
         Inventory.instance.Remove(item);
         // Player.instance => update the player sprite as well
+        //JoystickController.instance.
     }
 
 

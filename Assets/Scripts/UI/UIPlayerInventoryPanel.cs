@@ -11,9 +11,6 @@ public class UIPlayerInventoryPanel : MonoBehaviour
     private Inventory inventory;
 
 
-    [Tooltip("How many items are currently shown active")]
-    public int currentItems;
-
     void Start()
     {
         inventory = Inventory.instance;

@@ -24,6 +24,7 @@ public class Collectible : Touchable
     public void OnCollect() {
         Debug.Log("collecting " + item.name);
         item.isCollected = true;
+        item.number += 1;
         UIManager.ObtainItem(item);
         Destroy(gameObject);
     }
