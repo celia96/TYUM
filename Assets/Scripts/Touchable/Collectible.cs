@@ -9,11 +9,11 @@ public class Collectible : Touchable
 
     void Start()
     {
-        if (item.isCollected)
-        {
-            Destroy(gameObject);
-        }    
-    }
+		if (item.isCollected)
+		{
+			Destroy(gameObject);
+		}
+	}
 
 
     public override void OnTouch()

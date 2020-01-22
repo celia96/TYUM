@@ -13,6 +13,8 @@ public class Fridge : Touchable
     private SpriteRenderer spriteRenderer;
     private static bool opened = false;
 
+    private GameObject cheeseObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,14 +47,14 @@ public class Fridge : Touchable
             Collectible cheese = cheesePrefab.GetComponent<Collectible>();
             if (!cheese.item.isCollected)
             {
-                Instantiate(cheesePrefab, cheeseSpawn.position, Quaternion.identity);
+                cheeseObject = Instantiate(cheesePrefab, cheeseSpawn.position, Quaternion.identity);
             }            
         } else
         {
             Debug.Log("close a fridge");
             opened = false;
             spriteRenderer.sprite = fridgeClosed;
+            Destroy(cheeseObject);
         }
-        
     }
 }

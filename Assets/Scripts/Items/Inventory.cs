@@ -24,27 +24,23 @@ public class Inventory : MonoBehaviour
 
     public void Add(Item item)
     {
-        if (!item.isDefaultItem)
+        if (items.Contains(item))
         {
-            if (items.Contains(item))
+            Debug.Log("incrementing an existing item");
+            if (OnItemChangedCallback != null)
             {
-                Debug.Log("incrementing an existing item");
-                if (OnItemChangedCallback != null)
-                {
-                    OnItemChangedCallback.Invoke();
-                }
+                OnItemChangedCallback.Invoke();
             }
-            else
+        }
+        else
+        {
+            Debug.Log("adding an item to the inventory");
+            items.Add(item);
+
+            if (OnItemChangedCallback != null)
             {
-                Debug.Log("adding an item to the inventory");
-                items.Add(item);
-
-                if (OnItemChangedCallback != null)
-                {
-                    OnItemChangedCallback.Invoke();
-                }
+                OnItemChangedCallback.Invoke();
             }
-
         }
     }
 

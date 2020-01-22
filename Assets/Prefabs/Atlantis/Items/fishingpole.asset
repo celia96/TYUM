@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: fishingpole
   icon: {fileID: 21300000, guid: 5ccb4b328e6664ac192d483d1841b09d, type: 3}
-  itemObject: {fileID: 4774403832619153489, guid: 4c1692436bb324afb88abce4442a984b,
+  itemPrefab: {fileID: 1509325837608303658, guid: ec3948b106eb94191a97e808ef7c5e56,
     type: 3}
   number: 0
-  isDefaultItem: 0
   isCollected: 0
   isUsed: 0

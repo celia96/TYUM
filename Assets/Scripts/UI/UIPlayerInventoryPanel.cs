@@ -14,7 +14,7 @@ public class UIPlayerInventoryPanel : MonoBehaviour
     void Start()
     {
         inventory = Inventory.instance;
-        Debug.Log("logging item count " + Inventory.items.Count);
+
         for (int i = 0; i < numberOfSlots; i++)
         {
             if (i < Inventory.items.Count)

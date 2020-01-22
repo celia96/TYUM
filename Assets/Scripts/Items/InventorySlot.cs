@@ -7,7 +7,7 @@ public class InventorySlot : MonoBehaviour
 
 	public Image icon;
     public Text numberText;
-	Item item;
+    [HideInInspector] public Item item;
 
 
     public void AddItem(Item newItem)
@@ -28,18 +28,19 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = null;
         icon.enabled = false;
+        numberText.text = "";
     }
 
 
-    public void UseItem()
-    {
-        if (item != null)
-        {
-            item.Use(item);
-        } else
-        {
-            Debug.Log("Cannot use this item");
-        }
-    }
+    //public void UseItem()
+    //{
+    //    if (item != null)
+    //    {
+    //        item.Use(item);
+    //    } else
+    //    {
+    //        Debug.Log("Cannot use this item");
+    //    }
+    //}
 
 }
