@@ -18,6 +18,7 @@ public class Item : ScriptableObject
 		{
 			Debug.Log("using an item " + name);
 			UIManager.UseItem(item);
+			item.number -= 1;
 			item.isUsed = true;
 		}
     }

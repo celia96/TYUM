@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class Telephone : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Telephone : MonoBehaviour
     public string pressedNumbers;
 
     public Text numberText;
+
+    public VideoPlayer video;
 
     public static bool missionComplete;
 
@@ -27,6 +31,8 @@ public class Telephone : MonoBehaviour
             if (Fishing.missionComplete == true)
             {
                 Debug.Log(" play complete animation mov ");
+                video.loopPointReached += EndReached;
+                video.Play();
             } else
             {
                 Debug.Log(" play incomplete animation mov ");
@@ -37,6 +43,13 @@ public class Telephone : MonoBehaviour
         {
             numberText.text = "Wrong Number!";
         }
+    }
+
+    void EndReached(VideoPlayer vp)
+    {
+        vp.playbackSpeed /= 10.0F;
+        Debug.Log("hello telephone ending");
+        SceneManager.LoadScene("Underwater");
     }
 
     public void Clear()

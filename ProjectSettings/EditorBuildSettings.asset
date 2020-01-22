@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Atlantis/Room.unity
     guid: fbfe1052db3e545488b92a23df479a6e
+  - enabled: 1
+    path: Assets/Scenes/Atlantis/Underwater.unity
+    guid: 9d6358d80c07e4b01981bec0b65eab37
   m_configObjects: {}

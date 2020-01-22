@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.Video;
 
 public class Fishing : DropZone
 {
@@ -10,7 +10,8 @@ public class Fishing : DropZone
 
     public Item cheese;
     public Item fishingpole;
-    
+
+    public VideoPlayer video;
 
     //private void Update()
     //{
@@ -23,6 +24,15 @@ public class Fishing : DropZone
     public void StartFishing()
     {
         Debug.Log("mision is complete. Start the animation mov");
+        // Each time we reach the end, we slow down the playback by a factor of 10.
+        video.loopPointReached += EndReached;
+        video.Play();
+    }
+
+    void EndReached(VideoPlayer vp)
+    {
+        vp.playbackSpeed /= 10.0F;
+        Debug.Log("hello Fishing ending");
     }
 
     public override void OnDrop(Item item)
@@ -34,6 +44,7 @@ public class Fishing : DropZone
             {
                 Instantiate(item.itemPrefab, cheeseSpawn.position, Quaternion.identity);
                 item.Use(item);
+                StartFishing();
             }
         }
         if (item.name == "fishingpole")
@@ -42,4 +53,5 @@ public class Fishing : DropZone
             item.Use(item);
         }
     }
+ 
 }

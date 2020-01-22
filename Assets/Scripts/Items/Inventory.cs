@@ -47,8 +47,11 @@ public class Inventory : MonoBehaviour
     public void Remove(Item item)
     {
         Debug.Log("removing an item from an inventory");
-        items.Remove(item);
-
+        if (item.number == 0)
+		{
+			items.Remove(item);
+		}
+        
         if (OnItemChangedCallback != null)
         {
             OnItemChangedCallback.Invoke();
