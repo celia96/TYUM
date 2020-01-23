@@ -941,7 +941,7 @@ MonoBehaviour:
   numberToCall: 1135315513
   pressedNumbers: 
   numberText: {fileID: 1543966851}
-  video: {fileID: 0}
+  video: {fileID: 1259153068}
 --- !u!1 &483413494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,6 +1623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 886297449}
   - component: {fileID: 886297450}
+  - component: {fileID: 886297453}
   m_Layer: 5
   m_Name: Video Player 1
   m_TagString: Untagged
@@ -1644,10 +1645,10 @@ RectTransform:
   m_Father: {fileID: 942183451}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &886297450
 VideoPlayer:
@@ -1657,7 +1658,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886297448}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 1f5a94801ebb04072820fba0f2d64e98, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: ac63fe2e94344481fa7ac870573fea09, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 519420031}
@@ -1683,6 +1684,14 @@ VideoPlayer:
   m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
+--- !u!222 &886297453
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886297448}
+  m_CullTransparentMesh: 0
 --- !u!1 &886384266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,7 +1870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &942183451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1896,12 +1905,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2495,7 +2504,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259153066}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c055d4466826f4beba684419dadbf638, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: b03d6e67ef17c4a7a99bdd04222f2f5f, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 519420031}
@@ -2516,7 +2525,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
