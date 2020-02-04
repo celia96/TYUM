@@ -16,7 +16,10 @@ public class SpriteAnimation : MonoBehaviour
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        StartCoroutine(PlayAnimation(framesPerSecond));
+        if (frames.Length >= 1)
+        {
+            StartCoroutine(PlayAnimation(framesPerSecond));
+        }
     }
 
     IEnumerator PlayAnimation(float seconds)
@@ -24,6 +27,7 @@ public class SpriteAnimation : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(seconds);
+
             if (spriteVersion == frames.Length - 1)
             {
                 spriteVersion = 0;

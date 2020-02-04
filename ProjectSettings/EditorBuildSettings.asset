@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Atlantis/Underwater.unity
     guid: 9d6358d80c07e4b01981bec0b65eab37
+  - enabled: 1
+    path: Assets/Scenes/Atlantis/Bar.unity
+    guid: 1319add9446e74bb38a59cef5e5aee8f
   m_configObjects: {}
